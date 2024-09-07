@@ -32,9 +32,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self?.logOut()
         }
         
-//        if User.current != nil {
-//            login()
-//        }
+        // Persisted login check
+        if User.current != nil {
+            login()
+        }
     }
     
     private func login() {
