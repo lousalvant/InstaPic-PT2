@@ -17,6 +17,9 @@ class FeedViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    
+    // Stretch Feature: Create refresh control instance
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +27,23 @@ class FeedViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false
+        
+        // Stretch Feature: Refresh control set up
+        refreshControl.addTarget(self, action: #selector(refreshFeed), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        queryPosts()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         queryPosts()
+    }
+    
+    // Stretch Feature: Refresh feed method
+    @objc private func refreshFeed() {
+            queryPosts()
     }
 
     private func queryPosts() {
@@ -39,6 +53,12 @@ class FeedViewController: UIViewController {
 
         // Fetch objects (posts) defined in query (async)
         query.find { [weak self] result in
+            
+            // Stretch Feature: End refresh when data is loaded
+            DispatchQueue.main.async {
+                self?.refreshControl.endRefreshing()
+            }
+            
             switch result {
             case .success(let posts):
                 // Update local posts property with fetched posts
