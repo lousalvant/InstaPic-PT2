@@ -1,11 +1,5 @@
-//
-//  PostCell.swift
-//  project-2-lousalvant
-//
-//  Created by Lou-Michael Salvant on 9/6/24.
-//
-
 import UIKit
+import CoreLocation
 
 class PostCell: UITableViewCell {
 
@@ -13,8 +7,10 @@ class PostCell: UITableViewCell {
     @IBOutlet private weak var postImageView: UIImageView!
     @IBOutlet private weak var captionLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel! // Stretch Feature: Location outlet
 
     private var imageDataTask: URLSessionDataTask?
+    private let geocoder = CLGeocoder()
 
     func configure(with post: Post) {
         // Username
@@ -34,6 +30,31 @@ class PostCell: UITableViewCell {
         // Date
         if let date = post.createdAt {
             dateLabel.text = DateFormatter.postFormatter.string(from: date)
+        }
+
+        // Stretch Feature: Location
+        if let location = post.location {
+            let latitude = location.latitude
+            let longitude = location.longitude
+
+            // Use reverse geocoding to get the location name
+            geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { [weak self] placemarks, error in
+                guard let self = self else { return }
+
+                if let placemark = placemarks?.first {
+                    let city = placemark.locality ?? "Unknown city"
+                    let state = placemark.administrativeArea ?? "Unknown state"
+                    
+                    // Combine city and state into a single string
+                    let locationText = "\(city), \(state)"
+                    
+                    DispatchQueue.main.async {
+                        self.locationLabel.text = locationText
+                    }
+                } else if let error = error {
+                    print("❌ Error reverse geocoding: \(error.localizedDescription)")
+                }
+            }
         }
     }
 
@@ -65,7 +86,8 @@ class PostCell: UITableViewCell {
         // Cancel any pending image download
         imageDataTask?.cancel()
 
-        // Reset image view image
+        // Reset image view image and location label
         postImageView.image = nil
+        locationLabel.text = nil
     }
 }

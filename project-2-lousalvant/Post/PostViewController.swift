@@ -8,10 +8,14 @@
 import UIKit
 import PhotosUI
 import ParseSwift
+import CoreLocation
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, CLLocationManagerDelegate {
+    
+    // Stretch Feature: Location manager to get the user's current location
+    let locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
 
-    // MARK: Outlets
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var captionTextField: UITextField!
     @IBOutlet weak var previewImageView: UIImageView!
@@ -20,10 +24,24 @@ class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Stretch Feature: Request location authorization
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    // Stretch Feature: Handle location updates
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = locations.last
+        locationManager.stopUpdatingLocation() // Stop updates to save battery
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("❌ Location error: \(error.localizedDescription)")
     }
 
     @IBAction func onPickedImageTapped(_ sender: UIBarButtonItem) {
-        // TODO: Pt 1 - Present Image picker
         // Create a configuration object
         var config = PHPickerConfiguration()
 
@@ -47,14 +65,11 @@ class PostViewController: UIViewController {
     }
 
     @IBAction func onShareTapped(_ sender: Any) {
-
         // Dismiss Keyboard
         view.endEditing(true)
 
-        // TODO: Pt 1 - Create and save Post
         // Unwrap optional pickedImage
         guard let image = pickedImage,
-              // Create and compress image data (jpeg) from UIImage
               let imageData = image.jpegData(compressionQuality: 0.1) else {
             return
         }
@@ -72,24 +87,26 @@ class PostViewController: UIViewController {
         // Set the user as the current user
         post.user = User.current
 
+        // Stretch Feature: Set the location if available
+        if let location = currentLocation {
+            post.location = try? ParseGeoPoint(latitude: location.coordinate.latitude,
+                                          longitude: location.coordinate.longitude)
+        }
+
         // Save object in background (async)
         post.save { [weak self] result in
-
-            // Switch to the main thread for any UI updates
             DispatchQueue.main.async {
                 switch result {
                 case .success(let post):
                     print("✅ Post Saved! \(post)")
-
-                    // Return to previous view controller
                     self?.navigationController?.popViewController(animated: true)
-
                 case .failure(let error):
                     self?.showAlert(description: error.localizedDescription)
                 }
             }
         }
     }
+
 
     @IBAction func onViewTapped(_ sender: Any) {
         // Dismiss keyboard
@@ -104,7 +121,6 @@ class PostViewController: UIViewController {
     }
 }
 
-// TODO: Pt 1 - Add PHPickerViewController delegate and handle picked image.
 
 extension PostViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
