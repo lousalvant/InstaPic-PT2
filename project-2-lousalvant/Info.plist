@@ -4,6 +4,10 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need access to your location to tag your posts with the place they were taken.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MigaeSemibold-3zd2M.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

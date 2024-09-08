@@ -39,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E43EEE202C8E038800D81ED6 /* MigaeSemibold-3zd2M.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MigaeSemibold-3zd2M.otf"; path = "../../../../../Downloads/migae-font/MigaeSemibold-3zd2M.otf"; sourceTree = "<group>"; };
 		E47415572C8B97F10058D3A1 /* project-2-lousalvant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-2-lousalvant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E474155A2C8B97F10058D3A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E474155C2C8B97F10058D3A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E43EEE1F2C8E037600D81ED6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E43EEE202C8E038800D81ED6 /* MigaeSemibold-3zd2M.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E474154E2C8B97F10058D3A1 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +109,7 @@
 				E47415652C8B97F30058D3A1 /* LaunchScreen.storyboard */,
 				E47415682C8B97F30058D3A1 /* Info.plist */,
 				E47415992C8CAF960058D3A1 /* Assets.xcassets */,
+				E43EEE1F2C8E037600D81ED6 /* Fonts */,
 			);
 			path = "project-2-lousalvant";
 			sourceTree = "<group>";
