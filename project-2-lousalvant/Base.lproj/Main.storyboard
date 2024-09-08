@@ -23,7 +23,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="faQ-9w-3Mg">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="170.33333333333334"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blabber" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQd-85-e5w">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="InstaPic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQd-85-e5w">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="78.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="72"/>
                                                 <nil key="textColor"/>
@@ -46,7 +46,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skc-hP-mHm">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="48"/>
-                                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="D5M-mq-o3x"/>
                                                 </constraints>
@@ -67,18 +67,18 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SIj-LH-o3b">
-                                <rect key="frame" x="71.666666666666671" y="447.33333333333331" width="249.66666666666663" height="34.333333333333314"/>
+                                <rect key="frame" x="69.666666666666671" y="447.33333333333331" width="253.66666666666663" height="34.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-op-RDo">
-                                        <rect key="frame" x="0.0" y="8.3333333333333712" width="161" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Need an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-op-RDo">
+                                        <rect key="frame" x="0.0" y="8.3333333333333712" width="124" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9T-vs-8a4">
-                                        <rect key="frame" x="161" y="0.0" width="88.666666666666686" height="34.333333333333336"/>
+                                        <rect key="frame" x="123.99999999999999" y="0.0" width="129.66666666666663" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Sign Up."/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign Up Here."/>
                                         <connections>
                                             <segue destination="ZmV-fe-K9L" kind="show" id="D0T-wq-RQY"/>
                                         </connections>
@@ -150,7 +150,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vJ-Yv-U3C">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="48"/>
-                                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="ry8-La-Tf3"/>
                                                 </constraints>
@@ -258,10 +258,10 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAf-oO-xDR">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boca Raton, FL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAf-oO-xDR">
                                                                     <rect key="frame" x="16" y="23.333333333333371" width="361" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 hours ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2Z-1n-XGh">
@@ -303,7 +303,7 @@
                             <constraint firstItem="47A-71-0l6" firstAttribute="leading" secondItem="6oI-MW-AKf" secondAttribute="leading" id="f1L-dS-MtM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Blabber" id="rNt-PU-HAO" userLabel="Blabber">
+                    <navigationItem key="navigationItem" title="InstaPic" id="rNt-PU-HAO" userLabel="Blabber">
                         <barButtonItem key="backBarButtonItem" title=" " id="qos-jM-sUU"/>
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="aby-iZ-bR9">
                             <color key="tintColor" systemColor="labelColor"/>
@@ -311,7 +311,7 @@
                                 <action selector="onLogOutTapped:" destination="bXJ-2Z-5Db" id="SOV-Mw-F21"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="plus.app" catalog="system" id="p5a-CL-qeg">
+                        <barButtonItem key="rightBarButtonItem" image="plus.square.dashed" catalog="system" id="p5a-CL-qeg">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <segue destination="Ssd-8i-Q9i" kind="show" id="hk6-Xv-Qh4"/>
@@ -397,13 +397,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="XQD-eU-MEQ">
                         <rightBarButtonItems>
-                            <barButtonItem title="Share" id="43h-cA-rea">
+                            <barButtonItem title="Post" id="43h-cA-rea">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="onShareTapped:" destination="Ssd-8i-Q9i" id="g6z-M3-4vg"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="photo" catalog="system" id="m1N-kU-3vD">
+                            <barButtonItem image="photo.on.rectangle.angled" catalog="system" id="m1N-kU-3vD">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="onPickedImageTapped:" destination="Ssd-8i-Q9i" id="n2A-U8-PU6"/>
@@ -428,9 +428,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="photo" catalog="system" width="128" height="93"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
-        <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="98"/>
+        <image name="plus.square.dashed" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -443,8 +443,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
