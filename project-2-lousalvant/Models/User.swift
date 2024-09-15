@@ -21,4 +21,7 @@ struct User: ParseUser {
     var emailVerified: Bool?
     var password: String?
     var authData: [String: [String: String]?]?
+    
+    // Track user's last post
+    var lastPostedDate: Date?
 }

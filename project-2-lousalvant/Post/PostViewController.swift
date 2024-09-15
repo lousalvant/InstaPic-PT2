@@ -122,9 +122,36 @@ class PostViewController: UIViewController, CLLocationManagerDelegate {
                 switch result {
                 case .success(let post):
                     print("✅ Post Saved! \(post)")
-                    self?.navigationController?.popViewController(animated: true)
+                    
+                    // Get the current user
+                    if var currentUser = User.current {
+
+                        // Update the `lastPostedDate` property on the user with the current date.
+                        currentUser.lastPostedDate = Date()
+
+                        // Save updates to the user (async)
+                        currentUser.save { [weak self] result in
+                            DispatchQueue.main.async {
+                                switch result {
+                                case .success(let user):
+                                    print("✅ User Saved! \(user)")
+
+                                    // Return to previous view controller
+                                    self?.navigationController?.popViewController(animated: true)
+
+                                case .failure(let error):
+                                    // Show the alert on the main thread
+                                    self?.showAlert(description: error.localizedDescription)
+                                }
+                            }
+                        }
+                    }
+
                 case .failure(let error):
-                    self?.showAlert(description: error.localizedDescription)
+                    // Show the alert on the main thread
+                    DispatchQueue.main.async {
+                        self?.showAlert(description: error.localizedDescription)
+                    }
                 }
             }
         }
