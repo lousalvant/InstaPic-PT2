@@ -23,6 +23,9 @@ class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set up notification observer for when the user successfully posts
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshFeed), name: Notification.Name("postSuccess"), object: nil)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,28 +49,30 @@ class FeedViewController: UIViewController {
             queryPosts()
     }
 
+    private var hasUserPosted: Bool {
+        return User.current?.lastPostedDate != nil
+    }
+
     private func queryPosts() {
-        
         let yesterdayDate = Calendar.current.date(byAdding: .hour, value: -24, to: Date())!
-        
+
         let query = Post.query()
             .include("user")
             .order([.descending("createdAt")])
             .where("createdAt" >= yesterdayDate)
             .limit(10)
 
-        // Fetch objects (posts) defined in query (async)
+        // Fetch posts
         query.find { [weak self] result in
-            
-            // Stretch Feature: End refresh when data is loaded
             DispatchQueue.main.async {
+                // End refresh when data is loaded
                 self?.refreshControl.endRefreshing()
             }
-            
+
             switch result {
             case .success(let posts):
-                // Update local posts property with fetched posts
                 self?.posts = posts
+
             case .failure(let error):
                 self?.showAlert(description: error.localizedDescription)
             }
@@ -106,7 +111,9 @@ extension FeedViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostCell else {
             return UITableViewCell()
         }
-        cell.configure(with: posts[indexPath.row])
+
+        // Pass the `hasUserPosted` flag to the cell
+        cell.configure(with: posts[indexPath.row], hasUserPosted: hasUserPosted)
         return cell
     }
 }

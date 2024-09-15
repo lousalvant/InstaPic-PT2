@@ -139,6 +139,10 @@ class PostViewController: UIViewController, CLLocationManagerDelegate {
                                     // Return to previous view controller
                                     self?.navigationController?.popViewController(animated: true)
 
+                                    // After the post is successfully saved, reload the feed
+                                    NotificationCenter.default.post(name: Notification.Name("postSuccess"), object: nil)
+
+
                                 case .failure(let error):
                                     // Show the alert on the main thread
                                     self?.showAlert(description: error.localizedDescription)

@@ -9,10 +9,12 @@ class PostCell: UITableViewCell {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel! // Stretch Feature: Location outlet
 
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
     private var imageDataTask: URLSessionDataTask?
     private let geocoder = CLGeocoder()
 
-    func configure(with post: Post) {
+    func configure(with post: Post, hasUserPosted: Bool) {
         // Username
         if let user = post.user {
             usernameLabel.text = user.username
@@ -30,6 +32,13 @@ class PostCell: UITableViewCell {
         // Date
         if let date = post.createdAt {
             dateLabel.text = DateFormatter.postFormatter.string(from: date)
+        }
+        
+        // Show or hide the blur view depending on whether the current user has posted
+        if !hasUserPosted {
+            blurView.isHidden = false  // Blur all images if the user hasn't posted
+        } else {
+            blurView.isHidden = true  // Unblur if the user has posted
         }
 
         // Stretch Feature: Location
