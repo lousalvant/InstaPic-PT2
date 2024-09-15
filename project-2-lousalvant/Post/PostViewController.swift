@@ -63,6 +63,29 @@ class PostViewController: UIViewController, CLLocationManagerDelegate {
         // Present the picker
         present(picker, animated: true)
     }
+    
+    @IBAction func onTakePhotoTapped(_ sender: UIBarButtonItem) {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+                    print("❌📷 Camera not available")
+                    return
+                }
+
+                // Instantiate the image picker
+                let imagePicker = UIImagePickerController()
+
+                // Shows the camera (vs the photo library)
+                imagePicker.sourceType = .camera
+
+                // Allows user to edit image within image picker flow (i.e. crop, etc.)
+                imagePicker.allowsEditing = true
+
+                // The image picker (camera in this case) will return captured photos via its delegate method.
+                imagePicker.delegate = self
+
+                // Present the image picker (camera)
+                present(imagePicker, animated: true)
+    }
+    
 
     @IBAction func onShareTapped(_ sender: Any) {
         // Dismiss Keyboard
@@ -164,3 +187,32 @@ extension PostViewController: PHPickerViewControllerDelegate {
     
 
 }
+
+extension PostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // Delegate method that's called when user finishes picking image (photo library or camera)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // Dismiss the image picker
+        picker.dismiss(animated: true)
+
+        // Get the edited image from the info dictionary (if `allowsEditing = true` for image picker config).
+        // Alternatively, to get the original image, use the `.originalImage` InfoKey instead.
+        guard let image = info[.editedImage] as? UIImage else {
+            print("❌📷 Unable to get image")
+            return
+        }
+
+        // Set image on preview image view
+        previewImageView.image = image
+
+        // Set image to use when saving post
+        pickedImage = image
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user cancels
+        picker.dismiss(animated: true)
+    }
+}
+

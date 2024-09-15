@@ -408,6 +408,12 @@
                                     <action selector="onShareTapped:" destination="Ssd-8i-Q9i" id="g6z-M3-4vg"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem image="camera" catalog="system" id="g37-7h-FTm">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="onTakePhotoTapped:" destination="Ssd-8i-Q9i" id="7wY-Vl-zF6"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="photo.on.rectangle.angled" catalog="system" id="m1N-kU-3vD">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -434,6 +440,7 @@
     </scenes>
     <resources>
         <image name="InstaPic-9-15-2024.png" width="1024" height="297"/>
+        <image name="camera" catalog="system" width="128" height="93"/>
         <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="98"/>
         <image name="plus.square.dashed" catalog="system" width="128" height="114"/>
