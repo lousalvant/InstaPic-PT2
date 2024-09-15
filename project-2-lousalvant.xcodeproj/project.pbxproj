@@ -22,7 +22,8 @@
 		E474158A2C8B9F8A0058D3A1 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = E47415892C8B9F8A0058D3A1 /* AlamofireImage */; };
 		E474158D2C8BA0060058D3A1 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474158C2C8BA0060058D3A1 /* DateFormatter+Extensions.swift */; };
 		E47415962C8C87EA0058D3A1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E47415952C8C87EA0058D3A1 /* Alamofire */; };
-		E474159A2C8CAF960058D3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47415992C8CAF960058D3A1 /* Assets.xcassets */; };
+		E4FE2AA22C97023E0029A980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FE2AA12C97023E0029A980 /* Assets.xcassets */; };
+		E4FE2AA42C9704380029A980 /* InstaPic-9-15-2024.png in Resources */ = {isa = PBXBuildFile; fileRef = E4FE2AA32C9704380029A980 /* InstaPic-9-15-2024.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,7 +40,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E43EEE202C8E038800D81ED6 /* MigaeSemibold-3zd2M.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MigaeSemibold-3zd2M.otf"; path = "../../../../../Downloads/migae-font/MigaeSemibold-3zd2M.otf"; sourceTree = "<group>"; };
 		E47415572C8B97F10058D3A1 /* project-2-lousalvant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-2-lousalvant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E474155A2C8B97F10058D3A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E474155C2C8B97F10058D3A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +54,8 @@
 		E474157E2C8B9C560058D3A1 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E47415812C8B9C8C0058D3A1 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E474158C2C8BA0060058D3A1 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
-		E47415992C8CAF960058D3A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
+		E4FE2AA12C97023E0029A980 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E4FE2AA32C9704380029A980 /* InstaPic-9-15-2024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "InstaPic-9-15-2024.png"; path = "../../../../Downloads/InstaPic-9-15-2024.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,14 +72,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E43EEE1F2C8E037600D81ED6 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				E43EEE202C8E038800D81ED6 /* MigaeSemibold-3zd2M.otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		E474154E2C8B97F10058D3A1 = {
 			isa = PBXGroup;
 			children = (
@@ -108,8 +101,8 @@
 				E47415602C8B97F10058D3A1 /* Main.storyboard */,
 				E47415652C8B97F30058D3A1 /* LaunchScreen.storyboard */,
 				E47415682C8B97F30058D3A1 /* Info.plist */,
-				E47415992C8CAF960058D3A1 /* Assets.xcassets */,
-				E43EEE1F2C8E037600D81ED6 /* Fonts */,
+				E4FE2AA12C97023E0029A980 /* Assets.xcassets */,
+				E4FE2AA32C9704380029A980 /* InstaPic-9-15-2024.png */,
 			);
 			path = "project-2-lousalvant";
 			sourceTree = "<group>";
@@ -227,8 +220,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E47415672C8B97F30058D3A1 /* Base in Resources */,
-				E474159A2C8CAF960058D3A1 /* Assets.xcassets in Resources */,
 				E47415622C8B97F10058D3A1 /* Base in Resources */,
+				E4FE2AA42C9704380029A980 /* InstaPic-9-15-2024.png in Resources */,
+				E4FE2AA22C97023E0029A980 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +398,7 @@
 				DEVELOPMENT_TEAM = Z93ZH4XVS9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "project-2-lousalvant/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to your location to tag your posts with the place they were taken.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -433,6 +428,7 @@
 				DEVELOPMENT_TEAM = Z93ZH4XVS9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "project-2-lousalvant/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need access to your location to tag your posts with the place they were taken.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
