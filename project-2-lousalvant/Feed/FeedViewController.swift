@@ -47,9 +47,14 @@ class FeedViewController: UIViewController {
     }
 
     private func queryPosts() {
+        
+        let yesterdayDate = Calendar.current.date(byAdding: .hour, value: -24, to: Date())!
+        
         let query = Post.query()
             .include("user")
             .order([.descending("createdAt")])
+            .where("createdAt" >= yesterdayDate)
+            .limit(10)
 
         // Fetch objects (posts) defined in query (async)
         query.find { [weak self] result in
