@@ -56,7 +56,7 @@ The following **additional** features are implemented:
 ![GIF](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWs1bXI2bmpvY29jNGpwNG83aGlhajk2ZmppMzMyN2xyOXRucWgxciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/at85guGsXiVuqI1Obx/giphy.gif)
 
 
-![Image](https://imgur.com/tskDIJp)
+![Image](https://i.imgur.com/tskDIJp.png)
 
 
 ## Notes
