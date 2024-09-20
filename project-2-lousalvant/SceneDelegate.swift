@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import UserNotifications
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UNUserNotificationCenterDelegate {
+
     private enum Constants {
         static let loginNavigationControllerIdentifier = "LoginNavigationController"
         static let feedNavigationControllerIdentifier = "FeedNavigationController"
@@ -17,13 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        UNUserNotificationCenter.current().delegate = self  // Correctly set the delegate
+
         NotificationCenter.default.addObserver(forName: Notification.Name("login"), object: nil, queue: OperationQueue.main) { [weak self] _ in
             self?.login()
         }
@@ -37,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             login()
         }
     }
-    
+
     private func login() {
         let storyboard = UIStoryboard(name: Constants.storyboardIdentifier, bundle: nil)
         self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.feedNavigationControllerIdentifier)
@@ -45,17 +44,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func logOut() {
         User.logout { [weak self] result in
-
             switch result {
             case .success:
-
                 DispatchQueue.main.async {
-
                     let storyboard = UIStoryboard(name: Constants.storyboardIdentifier, bundle: nil)
-
                     let viewController = storyboard.instantiateViewController(withIdentifier: Constants.loginNavigationControllerIdentifier)
-
                     self?.window?.rootViewController = viewController
+                    self?.cancelPostReminder()
                 }
             case .failure(let error):
                 print("❌ Log out error: \(error)")
@@ -63,34 +58,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+    func cancelPostReminder() {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["postReminder"])
+        print("✅ Post reminder notification canceled")
     }
 
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+    // Correct method signature for UNUserNotificationCenterDelegate
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound])  // Show banner and play sound when in the foreground
     }
 
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
-    }
-
-
+    func sceneDidDisconnect(_ scene: UIScene) { }
+    func sceneDidBecomeActive(_ scene: UIScene) { }
+    func sceneWillResignActive(_ scene: UIScene) { }
+    func sceneWillEnterForeground(_ scene: UIScene) { }
+    func sceneDidEnterBackground(_ scene: UIScene) { }
 }
-
