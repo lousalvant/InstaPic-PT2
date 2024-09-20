@@ -24,6 +24,9 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 150
+        
         // Set up notification observer for when the user successfully posts
         NotificationCenter.default.addObserver(self, selector: #selector(refreshFeed), name: Notification.Name("postSuccess"), object: nil)
 
@@ -36,6 +39,15 @@ class FeedViewController: UIViewController {
         tableView.refreshControl = refreshControl
         
         queryPosts()
+        
+        // Add gesture recognizer to dismiss keyboard when tapping outside the text field
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+        
+    // Function to dismiss the keyboard
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +69,7 @@ class FeedViewController: UIViewController {
         let yesterdayDate = Calendar.current.date(byAdding: .hour, value: -24, to: Date())!
 
         let query = Post.query()
+            .include("comments")
             .include("user")
             .order([.descending("createdAt")])
             .where("createdAt" >= yesterdayDate)
@@ -120,4 +133,30 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: UITableViewDelegate {
     
+}
+
+extension FeedViewController: PostCellDelegate {
+    
+    func didTapPostComment(for post: Post, with comment: String) {
+        var postToUpdate = post
+        
+        let newComment = Comment(username: User.current?.username, content: comment)
+        
+        // Append new comment to post's comments array
+        if postToUpdate.comments == nil {
+            postToUpdate.comments = []
+        }
+        postToUpdate.comments?.append(newComment)
+        
+        // Save the updated post with the new comment
+        postToUpdate.save { [weak self] result in
+            switch result {
+            case .success:
+                print("✅ Comment posted successfully")
+                self?.refreshFeed() // Reload feed to show new comment
+            case .failure(let error):
+                print("❌ Failed to post comment: \(error.localizedDescription)")
+            }
+        }
+    }
 }

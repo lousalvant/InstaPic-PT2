@@ -22,8 +22,9 @@
 		E474158A2C8B9F8A0058D3A1 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = E47415892C8B9F8A0058D3A1 /* AlamofireImage */; };
 		E474158D2C8BA0060058D3A1 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E474158C2C8BA0060058D3A1 /* DateFormatter+Extensions.swift */; };
 		E47415962C8C87EA0058D3A1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E47415952C8C87EA0058D3A1 /* Alamofire */; };
+		E4761D4E2C9DFAC000230E38 /* InstaPic-9-15-2024.png in Resources */ = {isa = PBXBuildFile; fileRef = E4761D4D2C9DFAC000230E38 /* InstaPic-9-15-2024.png */; };
+		E4761D502C9E023F00230E38 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4761D4F2C9E023D00230E38 /* Comment.swift */; };
 		E4FE2AA22C97023E0029A980 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4FE2AA12C97023E0029A980 /* Assets.xcassets */; };
-		E4FE2AA42C9704380029A980 /* InstaPic-9-15-2024.png in Resources */ = {isa = PBXBuildFile; fileRef = E4FE2AA32C9704380029A980 /* InstaPic-9-15-2024.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,8 +55,9 @@
 		E474157E2C8B9C560058D3A1 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		E47415812C8B9C8C0058D3A1 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		E474158C2C8BA0060058D3A1 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		E4761D4D2C9DFAC000230E38 /* InstaPic-9-15-2024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InstaPic-9-15-2024.png"; sourceTree = "<group>"; };
+		E4761D4F2C9E023D00230E38 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		E4FE2AA12C97023E0029A980 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E4FE2AA32C9704380029A980 /* InstaPic-9-15-2024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "InstaPic-9-15-2024.png"; path = "../../../../Downloads/InstaPic-9-15-2024.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +104,7 @@
 				E47415652C8B97F30058D3A1 /* LaunchScreen.storyboard */,
 				E47415682C8B97F30058D3A1 /* Info.plist */,
 				E4FE2AA12C97023E0029A980 /* Assets.xcassets */,
-				E4FE2AA32C9704380029A980 /* InstaPic-9-15-2024.png */,
+				E4761D4D2C9DFAC000230E38 /* InstaPic-9-15-2024.png */,
 			);
 			path = "project-2-lousalvant";
 			sourceTree = "<group>";
@@ -110,6 +112,7 @@
 		E47415712C8B9BA10058D3A1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4761D4F2C9E023D00230E38 /* Comment.swift */,
 				E47415722C8B9BAD0058D3A1 /* User.swift */,
 				E47415742C8B9BB60058D3A1 /* Post.swift */,
 			);
@@ -221,7 +224,7 @@
 			files = (
 				E47415672C8B97F30058D3A1 /* Base in Resources */,
 				E47415622C8B97F10058D3A1 /* Base in Resources */,
-				E4FE2AA42C9704380029A980 /* InstaPic-9-15-2024.png in Resources */,
+				E4761D4E2C9DFAC000230E38 /* InstaPic-9-15-2024.png in Resources */,
 				E4FE2AA22C97023E0029A980 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +245,7 @@
 				E474157F2C8B9C560058D3A1 /* PostCell.swift in Sources */,
 				E474155D2C8B97F10058D3A1 /* SceneDelegate.swift in Sources */,
 				E474157D2C8B9C4C0058D3A1 /* FeedViewController.swift in Sources */,
+				E4761D502C9E023F00230E38 /* Comment.swift in Sources */,
 				E47415752C8B9BB60058D3A1 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

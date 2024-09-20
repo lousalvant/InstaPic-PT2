@@ -19,4 +19,5 @@ struct Post: ParseObject {
     var user: User?
     var imageFile: ParseFile?
     var location: ParseGeoPoint? // Stretch Feature: Store location
+    var comments: [Comment]?
 }
